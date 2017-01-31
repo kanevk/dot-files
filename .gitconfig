@@ -1,0 +1,22 @@
+[alias]
+	co = checkout
+	cop = checkout -p
+	a = add
+	ap = add -p
+	ci = commit
+	br = branch
+	di = diff
+	st = status
+st = status
+ci = commit
+br = branch
+co = checkout
+cp = cherry-pick
+di = diff
+dw = diff --word-diff
+remove-merged = !git branch --merged | grep -v master | grep -v '^\\*' | xargs git br -d
+
+[color]
+ui = True
+[push]
+default = simple
