@@ -7,16 +7,19 @@
 	br = branch
 	di = diff
 	st = status
-st = status
-ci = commit
-br = branch
-co = checkout
-cp = cherry-pick
-di = diff
-dw = diff --word-diff
-remove-merged = !git branch --merged | grep -v master | grep -v '^\\*' | xargs git br -d
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	cp = cherry-pick
+	di = diff
+	dw = diff --word-diff
+	remove-merged = !git branch --merged | grep -v master | grep -v '^\\*' | xargs git br -d
 
 [color]
-ui = True
+  ui = True
 [push]
-default = simple
+  default = simple
+[user]
+	email = kamen.e.kanev@gmail.com
+	name = Kamen Kanev
