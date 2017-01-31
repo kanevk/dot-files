@@ -1,0 +1,12 @@
+autocomplete-java@1.2.5
+language-dotfiles@1.0.0
+language-javascript-jsx@0.3.7
+language-slim@0.5.0
+linter@1.11.18
+linter-coffeescript@1.0.0
+linter-eslint@8.0.0
+linter-javac@1.9.4
+linter-rubocop@0.5.2
+vim-mode-plus@0.66.1
+
+
