@@ -16,3 +16,7 @@ Install the packages from `atom-package-list.txt` as follows:
 ```bash
 $ apt install --packages-file atom-package-list.txt
 ```
+
+## Tmux
+
+Put `.tmux.conf` and `.tmuxinator` in your home folder
