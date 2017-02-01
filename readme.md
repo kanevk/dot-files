@@ -20,3 +20,8 @@ $ apt install --packages-file atom-package-list.txt
 ## Tmux
 
 Put `.tmux.conf` and `.tmuxinator` in your home folder
+
+## Vim
+
+Copy `.vimrc` in your home folder and clone required git repositories
+in the `~/.vim/bundle` directory
