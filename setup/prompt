@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 export black="\[\033[0;38;5;0m\]"
 export red="\[\033[0;38;5;1m\]"
 export orange="\[\033[0;38;5;130m\]"

@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+if [[ -z "$1" ]]; then
+  echo "You should pass destiation direcory!"
+  exit
+else
+  DEST=$1
+fi
+
+echo "Installing into '$DEST'"
+echo -e
+
+for file in `ls -A ./setup`
+do
+  if [[ -a $DEST/$file  ]]; then
+    echo "File '$DEST/$file' exsists, migrating to '$DEST/$file.old'"
+    mv $DEST/$file $DEST/$file.old
+    echo "Linking '$DEST/$file'"
+    ln ./setup/$file $DEST/$file
+    echo -e
+  else
+    echo "linking '$DEST/$file'"
+    ln ./setup/$file $DEST/$file
+  fi
+done

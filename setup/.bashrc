@@ -8,9 +8,11 @@ case $- in
       *) return;;
 esac
 
-source ~/.shells/alias
-source ~/.shells/exports
-source ~/.shells/tmuxinator.bash
-
+source ~/functions
+source ~/alias
+source ~/defaults
+source ~/exports
+source ~/prompt
+source ~/tmuxinator.bash
 
 eval "$(rbenv init -)"

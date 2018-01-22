@@ -1,13 +1,22 @@
 # Instructions
 
-## Shells
+## Shell setup
 
-Add to `.bashrc` the sources you want
+Add to `setup/.bashrc` the sources you want
 ```bash
-source ~/.shells/alias
-source ~/.shells/exports
-source ~/.shells/tmuxinator.bash
+source ~/alias
+source ~/exports
+source ~/tmuxinator.bash
+...
 ```
+
+Installing into `~`
+```bash
+bin/install ~
+```
+It will move the current `~/.bashrc` to `~/.bashrc.old`!
+
+NOTE: Vim - Clone required git repositories in the `~/.vim/bundle` directory
 
 ## Atom
 
@@ -20,8 +29,3 @@ $ apt install --packages-file atom-package-list.txt
 ## Tmux
 
 Put `.tmux.conf` and `.tmuxinator` in your home folder
-
-## Vim
-
-Copy `.vimrc` in your home folder and clone required git repositories
-in the `~/.vim/bundle` directory
