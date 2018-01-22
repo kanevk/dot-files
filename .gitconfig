@@ -6,7 +6,7 @@
 	ci = commit
 	br = branch
 	di = diff
-	st = status
+	dic = diff --cached
 	st = status
 	ci = commit
 	br = branch
@@ -14,6 +14,8 @@
 	cp = cherry-pick
 	di = diff
 	dw = diff --word-diff
+	lo = log
+	logd = log --oneline --graph --decorate
 	remove-merged = !git branch --merged | grep -v master | grep -v '^\\*' | xargs git br -d
 
 [color]
@@ -23,3 +25,7 @@
 [user]
 	email = kamen.e.kanev@gmail.com
 	name = Kamen Kanev
+[rerere]
+	enabled = true
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RFX
