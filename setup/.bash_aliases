@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-echo 'here'
 alias ls='ls --sort=extension --color=auto'
 alias ll='ls -alh'
 alias la='ls -A'
