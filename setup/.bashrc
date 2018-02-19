@@ -77,17 +77,14 @@ esac
 . ~/.bash_aliases
 
 ################################### Completion #################################
-
-# Enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
+# For homebrew
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
 fi
+
+. ~/.git-completion.bash
+
+__git_complete g __git_main
 
 _tmuxinator() {
     COMPREPLY=()
@@ -124,3 +121,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 eval "$(rbenv init -)"
+
+
+if ! tmux ls | grep 'initial:' -q ; then
+  tmux new -s initial -d
+fi
