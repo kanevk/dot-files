@@ -4,19 +4,23 @@
 	a = add
 	ap = add -p
 	ci = commit
-	br = branch
+  pf = push --force-with-lease
+  pff = push --force
+	br = branch --sort=committerdate
 	di = diff
 	dic = diff --cached
 	st = status
 	ci = commit
-	br = branch
 	co = checkout
 	cp = cherry-pick
 	di = diff
 	dw = diff --word-diff
 	lo = log
 	logd = log --oneline --graph --decorate
+  remove-branches = "!f() { git branch | grep "^$1" | xargs git br -D; }; f "
 	remove-merged = !git branch --merged | grep -v master | grep -v '^\\*' | xargs git br -d
+  wip = commit --message='WIP' --no-verify
+  fixup = "!f() { TARGET=$(git rev-parse "$1"); git commit --squash=$TARGET --no-edit ${@:2} && GIT_SEQUENCE_EDITOR=: git rebase -i --autosquash $TARGET^;  }; f"
 
 [color]
   ui = True

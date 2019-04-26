@@ -114,14 +114,18 @@ alias mux="tmuxinator"
 
 export PATH=$HOME/scripts:$HOME/.local/bin:/usr/local/bin:$HOME/bin:$PATH
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
-export EDITOR='vim' ALTERNATE_EDITOR='vim' VISUAL='vim' BUNDLER_EDITOR='atom'
+export EDITOR='vim' ALTERNATE_EDITOR='vim' VISUAL='vim' BUNDLER_EDITOR='vim'
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+source $(brew --prefix nvm)/nvm.sh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 eval "$(rbenv init -)"
-
+eval "$(jump shell bash)"
 
 if ! tmux ls | grep 'initial:' -q ; then
   tmux new -s initial -d

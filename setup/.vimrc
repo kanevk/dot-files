@@ -34,8 +34,6 @@ Plugin 'tpope/vim-surround'
 
 call vundle#end()
 
-execute pathogen#infect()
-
 filetype plugin on
 
 set omnifunc=syntaxcomplete#Complete

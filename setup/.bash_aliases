@@ -7,7 +7,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias pms='sudo pm-suspend'
 alias psg='ps -A | grep'
-alias e='atom'
+alias e='code'
 alias g='git'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
