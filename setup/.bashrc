@@ -75,6 +75,7 @@ xterm*|rxvt*)
 esac
 
 . ~/.bash_aliases
+bind -f ~/.inputrc
 
 ################################### Completion #################################
 

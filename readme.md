@@ -2,11 +2,15 @@
 
 ## Mac setup
 
-Place the following to your `.bash_profile`:
-```bash
-[ -r ~/.bashrc ] && . ~/.bashrc
 ```
-More info for `.bashrc` and `.bash_profile` on mac [here](https://scriptingosx.com/2017/04/about-bash_profile-and-bashrc-on-macos/)
+brew install readline
+```
+
+NOT sure if the above is needed:
+```
+# brew link --force readline # not sure if needed
+RUBY_CONFIGURE_OPTS=--with-readline-dir=`brew --prefix readline` rbenv install [RUBY version - 2.5.1]
+```
 
 Disable the Character Accent Menu and Enable Key Repeat in Mac OS X with:
 ```bash
@@ -32,3 +36,7 @@ the personal token(REMINDER: in my Google keep notes with tag `vscode-sync`)
 ```bash
 $ apt install --packages-file atom-package-list.txt
 ```
+
+# Useful sources
+
+https://news.ycombinator.com/item?id=9056076
