@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-
-alias ls='ls --sort=extension --color=auto'
 alias ll='ls -alh'
 alias la='ls -A'
 alias ..='cd ..'
