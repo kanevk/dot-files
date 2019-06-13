@@ -79,16 +79,12 @@ bind -f ~/.inputrc
 
 ################################### Completion #################################
 
-# Enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-fi
+# MAC specific
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion || {
+    # if not found in /usr/local/etc, try the brew --prefix location
+    [ -f "$(brew --prefix)/etc/bash_completion.d/git-completion.bash" ] && \
+        . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
+}
 
 _tmuxinator() {
     COMPREPLY=()
@@ -113,6 +109,8 @@ _tmuxinator() {
 
 complete -F _tmuxinator tmuxinator mux
 alias mux="tmuxinator"
+
+complete -o default -o nospace -F _git g
 
 ################################################################################
 
