@@ -1,8 +1,9 @@
 set shell=/bin/bash
-set nocompatible
+
 filetype off
 
 set clipboard+=unnamedplus
+set nocompatible
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -22,19 +23,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'pangloss/vim-javascript'
 Plugin 'nfvs/vim-perforce'
 Plugin 'nvie/vim-flake8'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'jmcantrell/vim-virtualenv'
-Plugin 'python-mode/python-mode'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-session'
-Plugin 'calebsmith/vim-lambdify'
-Plugin 'janko-m/vim-test'
-Plugin 'tpope/vim-surround'
 
 call vundle#end()
-
-execute pathogen#infect()
 
 filetype plugin on
 
