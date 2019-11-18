@@ -33,10 +33,6 @@ NOTE: Vim - Clone required git repositories in the `~/.vim/bundle` directory
 Install the [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) extension and use
 the personal token(REMINDER: in my Google keep notes with tag `vscode-sync`)
 
-```bash
-$ apt install --packages-file atom-package-list.txt
-```
-
 # Useful sources
 
 https://news.ycombinator.com/item?id=9056076
