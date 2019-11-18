@@ -5,7 +5,6 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias pms='sudo pm-suspend'
 alias psg='ps -A | grep'
-alias e='atom'
 alias g='git'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -30,4 +29,4 @@ alias cp='cp -i'
 alias mv='mv -i'
 
 # Quickly load bashrc
-alias gogo='clear && source ~/.bashrc'
+alias gogo='clear && source ~/.zshrc'

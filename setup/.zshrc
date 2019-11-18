@@ -72,6 +72,9 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+# Set VIM bindings
+set -o vi
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -97,3 +100,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+source ~/.bash_aliases
+alias zshrc='code ~/.zshrc'
+
+export PATH=$HOME/.rbenv/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+eval "$(rbenv init -)"
+export PATH="/usr/local/opt/postgresql@10/bin:$PATH"

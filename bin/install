@@ -17,6 +17,13 @@ function link-dotfile {
 echo "Installing into diff-so-fancy for 'git di' command"
 brew install diff-so-fancy
 
+echo "Installing tmux"
+brew install tmux
+
+echo "Install utilities"
+brew install htop
+
+
 if [[ -z "$1" ]]; then
   echo "You should pass destiation direcory!"
   exit
