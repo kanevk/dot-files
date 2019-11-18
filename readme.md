@@ -9,6 +9,7 @@ brew install readline
 NOT sure if the above is needed:
 ```
 # brew link --force readline # not sure if needed
+brew install rbenv
 RUBY_CONFIGURE_OPTS=--with-readline-dir=`brew --prefix readline` rbenv install [RUBY version - 2.5.1]
 ```
 
