@@ -1,5 +1,19 @@
 #!/usr/bin/env bash
 
+### Functions
+function link-dotfile {
+  if [[ "$1" == "oh-my-zsh.sh" ]]; then
+    echo "Linking '$DEST/.oh-my-zsh/$1'"
+    ln ./setup/$1 $DEST/.oh-my-zsh/$1
+  else
+    echo "Linking '$DEST/$1'"
+    ln ./setup/$1 $DEST/$1
+  fi
+
+  echo -e
+}
+###
+
 echo "Installing into diff-so-fancy for 'git di' command"
 brew install diff-so-fancy
 
@@ -18,11 +32,7 @@ do
   if [[ -a $DEST/$file  ]]; then
     echo "File '$DEST/$file' exsists, migrating to '$DEST/$file.old'"
     mv $DEST/$file $DEST/$file.old
-    echo "Linking '$DEST/$file'"
-    ln ./setup/$file $DEST/$file
-    echo -e
-  else
-    echo "linking '$DEST/$file'"
-    ln ./setup/$file $DEST/$file
   fi
+
+  link-dotfile $file
 done
