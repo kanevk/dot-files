@@ -35,6 +35,9 @@ brew install htop
 echo "Install development tools"
 brew install yarn nvm
 
+echo "Allow repeating keys for VSCode"
+defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
+
 # Install Tmux package manager - TPM
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
