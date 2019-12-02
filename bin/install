@@ -23,6 +23,8 @@ brew install tmux
 echo "Install utilities"
 brew install htop
 
+echo "Install development tools"
+brew install yarn nvm
 
 if [[ -z "$1" ]]; then
   echo "You should pass destiation direcory!"
