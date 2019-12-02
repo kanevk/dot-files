@@ -12,12 +12,21 @@ function link-dotfile {
 
   echo -e
 }
-###
+
+# Install brew
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew doctor
+
+# Install git
+brew install git
 
 echo "Installing into diff-so-fancy for 'git di' command"
 brew install diff-so-fancy
 
-echo "Installing tmux"
+echo "Installing tmux and tmux related dependencies"
+# It's needed for copy/paste on MacOS
+# https://github.com/Microsoft/vscode/issues/24112#issuecomment-336672556
+brew install reattach-to-user-namespace
 brew install tmux
 
 echo "Install utilities"
@@ -25,6 +34,9 @@ brew install htop
 
 echo "Install development tools"
 brew install yarn nvm
+
+# Install Tmux package manager - TPM
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 if [[ -z "$1" ]]; then
   echo "You should pass destiation direcory!"
