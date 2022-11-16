@@ -116,7 +116,8 @@ complete -o default -o nospace -F _git g
 
 export PATH=$HOME/scripts:$HOME/.local/bin:/usr/local/bin:$HOME/bin:$PATH
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
-export EDITOR='vim' ALTERNATE_EDITOR='vim' VISUAL='vim' BUNDLER_EDITOR='atom'
+export EDITOR='vim' ALTERNATE_EDITOR='vim' VISUAL='vim' BUNDLER_EDITOR='code -w'
+export GIT_EDITOR="code -w"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

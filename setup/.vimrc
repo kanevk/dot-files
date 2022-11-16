@@ -310,3 +310,4 @@ nmap <silent> <leader>T :TestFile<CR>
 vmap s S
 
 map <F3> :set spell!<CR>
+vmap '' :w !pbcopy<CR><CR>

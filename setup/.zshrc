@@ -70,6 +70,10 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions)
 
+export ZSH_AUTOSUGGEST_STRATEGY=(history) # completion
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=blue"
+bindkey '^ ' autosuggest-accept
+
 source $ZSH/oh-my-zsh.sh
 
 # Set VIM bindings
@@ -107,9 +111,55 @@ export PATH=$HOME/.rbenv/bin:$PATH
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 eval "$(rbenv init -)"
+
 export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
 
-export NVM_DIR="$HOME/.nvm"
+export PATH="/usr/local/opt/krb5/bin:$PATH"
+export PATH="/usr/local/opt/krb5/sbin:$PATH"
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+# export NVM_DIR="$HOME/.nvm"
 
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+
+# export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+# export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+# export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+export GIT_EDITOR="code -w"
+export BUNDLER_EDITOR="code -w"
+
+# After NVM initialization!
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
+# Required for GlassDollar mono-repo project
+source ~/projects/git-subrepo/.rc
+export PATH="/Users/kkanev/.ebcli-virtual-env/executables:$PATH"
+export PATH="`python3 -m site --user-base`/bin:$PATH"
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
